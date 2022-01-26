@@ -24,7 +24,7 @@ class Denoiser(torch.nn.Module):
                 dtype=waveglow.upsample.weight.dtype,
                 device=waveglow.upsample.weight.device)
         else:
-            raise Exception("Mode {} if not supported".format(mode))
+            raise Exception("Mode {} is not supported".format(mode))
 
         with torch.no_grad():
             bias_audio = waveglow.infer(mel_input, sigma=0.0).float()
